@@ -1,0 +1,21 @@
+package com.myproject.web.domain;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class PlaceVO {
+	private int placeId; 
+	private int tripId; 
+	private String placeName; 
+	private String address; 
+	private String date; 
+	private String time;  
+	private String description;
+}
