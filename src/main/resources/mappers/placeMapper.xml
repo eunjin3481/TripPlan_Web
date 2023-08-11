@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myproject.web.mapper.PlaceMapper">
+
+
+	<select id="selectAll" resultType="PlaceVO">
+     <![CDATA[
+ 		select * from place_free where tripId = #{tripId}
+      ]]>
+	</select>
+	
+	<select id="selectByid" resultType="PlaceVO">
+		select * from place_free where placeId = #{placeId}
+	</select>
+
+	<select id="getLastInsertId" resultType="int">
+		SELECT LAST_INSERT_ID()
+		AS placeId
+	</select>
+
+	<insert id="insert">
+		insert into place_free (tripId, placeName, address, date, time, description)
+		values
+		(#{tripId}, #{placeName}, #{address}, #{date}, #{time}, #{description})
+	</insert>
+
+
+	<update id="update">
+		update place_free set placeName =#{placeName}, address =#{address}, date =#{date},
+		time =#{time}, description =#{description}
+		where placeId = #{placeId}
+	</update>
+
+	<delete id="delete">
+		delete from place_free where placeId = #{placeId}
+	</delete>
+
+</mapper>  

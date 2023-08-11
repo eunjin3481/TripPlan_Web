@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myproject.web.mapper.TripMapper">
+
+	<select id="selectAll" resultType="com.myproject.web.domain.TripVO">
+     <![CDATA[
+ 		select * from trip_free
+      ]]>
+	</select>
+	
+	<select id="userSelectAll" resultType="TripVO">
+		select * from trip_free where userId = #{userId}
+	</select>
+
+	<insert id="insert">
+		insert into trip_free (userId, tripTitle) values
+		(#{userId}, #{tripTitle})
+	</insert>
+
+	<select id="getLastInsertId" resultType="int">
+		SELECT LAST_INSERT_ID() AS tripId
+	</select>
+
+	<select id="selectByid" resultType="TripVO">
+		select * from trip_free where tripId = #{tripId}
+	</select>
+
+	<update id="update">
+		update trip_free set tripTitle =#{tripTitle}, state =#{state}
+		where tripId = #{tripId}
+	</update>
+	
+	<delete id="delete">
+		delete from trip_free where tripId =#{tripId}
+    </delete>
+
+</mapper>  

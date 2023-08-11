@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myproject.web.mapper.UserMapper">
+
+	<select id="login" parameterType="UserVO" resultType="UserVO">
+	    SELECT * FROM user_free
+    	WHERE userId = #{userId} AND userPasswd = #{userPasswd}
+	</select>
+	
+	<select id="selectByid" resultType="UserVO">
+ 		select * from user_free where userId = #{id}
+    </select>
+    
+    <insert id="insert"> 
+   		insert into user_free (userId, userName, userEmail, userPasswd) values
+ 		(#{userId}, #{userName}, #{userEmail}, #{userPasswd})
+    </insert> 
+    
+    <update id="update">
+	 	update user_free set userId =#{userId}, userName =#{userName}, userEmail =#{userEmail}, userPasswd =#{userPasswd}
+		 where userId = #{userId}
+    </update>
+	
+	<delete id="delete">
+		delete from user_free where userId = #{userId}
+    </delete>
+	
+</mapper>  
