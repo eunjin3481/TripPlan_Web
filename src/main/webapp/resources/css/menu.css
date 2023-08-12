@@ -1,0 +1,31 @@
+nav {
+	background-color: white; /* 배경 색상 흰색으로 설정 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+	display: flex;
+	align-items: center; /* 메뉴 아이템 세로 중앙 정렬 */
+	justify-content: flex-end; /* 메뉴 아이템 오른쪽 정렬 */
+	font-family: Arial, sans-serif; /* 폰트 설정 */
+	font-weight: bold;
+	height: 60px; /* 높이를 더 높여 두껍게 만듦 */
+}
+
+ul {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #333; /* 링크 색상 설정 */
+	padding: 10px;
+}
+
+a:hover {
+	color: #007bff; /* 호버 시 색상 변경 */
+}

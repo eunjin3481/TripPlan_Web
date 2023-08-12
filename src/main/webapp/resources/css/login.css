@@ -1,0 +1,91 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f7f7f7;
+	margin: 0;
+}
+
+.container {
+	width: 400px;
+	margin: 100px auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+.container header {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.container table {
+	width: 100%;
+}
+
+.container table th {
+	text-align: left;
+	font-weight: bold;
+	padding: 10px 0;
+	color: #666;
+}
+
+.container table td {
+	padding: 10px 0;
+}
+
+.container input[type="text"], .container input[type="password"] {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.container input[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	background-color: #001f3f;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.container input[type="reset"] {
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	background-color: #ffffff;
+	color: #001f3f;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+}
+
+.container button {
+	width: 100%;
+	padding: 10px;
+	background-color: #7a7a7a;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	display: inline-block;
+	padding: 10px 20px;
+	text-decoration: none;
+	border-radius: 4px;
+}
+
+.container .signup-link {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.container .signup-link a {
+	color: #001f3f;
+	text-decoration: none;
+}
+
