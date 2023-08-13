@@ -89,3 +89,9 @@ body {
 	text-decoration: none;
 }
 
+.container #img {
+	background-image: url("../img/profile.jpg");
+	background-size: cover;
+	background-position: center;
+	height: 100px;
+}
