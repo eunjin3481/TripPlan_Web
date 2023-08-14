@@ -17,8 +17,8 @@
 	</select>
 
 	<insert id="insert">
-		insert into trip_free (userId, tripTitle) values
-		(#{userId}, #{tripTitle})
+		insert into trip_free (userId, tripTitle, state) values
+		(#{userId}, #{tripTitle}, #{state})
 	</insert>
 
 	<select id="getLastInsertId" resultType="int">
