@@ -1,7 +1,10 @@
 package com.myproject.web.controller;
-import com.myproject.web.controller.*;
+import com.myproject.web.service.TripService;
 import com.myproject.web.service.UserService;
+import com.myproject.web.domain.TripVO;
 import com.myproject.web.domain.UserVO;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,6 +25,9 @@ public class UserController {
 	
 	@Autowired
     private UserService userService;
+	
+	@Autowired
+	private TripService tripService;
 
 	private static final Logger logger = LoggerFactory.getLogger(TripController.class);
 
@@ -79,9 +85,12 @@ public class UserController {
 	public String readUser(Model model, HttpServletRequest request) throws Exception{
 		HttpSession session = request.getSession(); // 세션 생성 또는 기존 세션 반환
 		String userId = (String) session.getAttribute("userId");
-		UserVO user = userService.readUser(userId);
-		model.addAttribute("user", user);
 		if(userId != null) {
+			UserVO user = userService.readUser(userId);
+			List<TripVO> trips = tripService.readUserTripList(user.getUserId());
+			model.addAttribute("user", user);
+			model.addAttribute("trips", trips);
+			
 			return "pages/profile";
 		}
 		else {
