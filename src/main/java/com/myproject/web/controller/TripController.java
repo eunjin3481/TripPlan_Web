@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,7 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@PropertySource("classpath:config/config.properties")
 public class TripController {
+	@Value("${google.map.api.key}")
+    private String apiKey;
 
 	@Autowired
 	private TripService tripService;
@@ -60,12 +65,10 @@ public class TripController {
 			vo.setUserId(userId);
 			vo.setTripTitle(title);
 			vo.setState("private");
-			
-			
 			int tripId = tripService.addTrip(vo);
-			TripVO trip = tripService.readTrip(tripId);
-			model.addAttribute("trip", trip);
-			return "pages/tripPlan";
+
+			model.addAttribute("tripId", tripId);
+			return "redirect:/tripUpdate";
 		}
 		
 		// 로그인을 안했을 경우
@@ -84,6 +87,7 @@ public class TripController {
 		
 		model.addAttribute("trip", trip);
 		model.addAttribute("places", places);
+		model.addAttribute("apiKey",apiKey);
 		
 		//model.addAttribute("num", 0); -> 페이지 다르게 하기
 		return "pages/tripPlan";
