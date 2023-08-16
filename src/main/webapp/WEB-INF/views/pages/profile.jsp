@@ -29,7 +29,7 @@
 					</tr>
 					<tr>
 						<th>PASSWORD</th>
-						<td><input type="text" name="userPasswd" value=""></td>
+						<td><input type="password" name="userPasswd" value="${user.userPasswd}"></td>
 					</tr>
 					<tr>
 						<th>NAME</th>
@@ -63,8 +63,8 @@
 							<td>${status.count}</td>
 							<td><c:url value="${trip.tripTitle}" /></td>
 							<td><c:out value="${trip.state}" /></td>
-							<td><c:url value="/trip/trip_modify?tripId=${trip.tripId}" var="url" /><a href="${url}">수정</a> 
-							<c:url value="/trip/trip_delete?tripId=${trip.tripId}" var="url" /><a href="${url}">삭제</a></td>
+							<td><c:url value="/tripUpdate?tripId=${trip.tripId}" var="url" /><a href="${url}">수정</a> 
+							<c:url value="/tripDelete?tripId=${trip.tripId}" var="url" /><a href="${url}">삭제</a></td>
 						</tr>
 					</tbody>
 				</c:forEach>

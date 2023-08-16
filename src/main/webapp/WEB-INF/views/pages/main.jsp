@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/menu.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/table.css">
-<script src="${pageContext.request.contextPath}/resources/js/search.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/modal.css">
 </head>
 <body>
 	<nav>
@@ -31,11 +31,21 @@
 
 	<header>
 		<h1>Trip Plan</h1>
-		<form action="trip" method="get">
-			<button type="submit" formmethod="GET">Create</button>
-		</form>
+		<button id="openModalBtn">Create</button>
+
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Create a New Travel Plan</h2>
+				<form action="tripCreate" method="post">
+					<label>Title:</label> <input type="text" name="title"><br>
+					<button type="submit" formethod="post">생성</button>
+				</form>
+			</div>
+		</div>
+
 	</header>
-	
+
 	<main>
 		<section class="search">
 			<input type="text" name="search" id="searchInput" placeholder="검색어 입력">
@@ -63,7 +73,7 @@
 							<tbody>
 								<tr>
 									<td>${status.index + 1}</td>
-									<td><c:url value="/trip/trip_read?tripId=${trip.tripId}" var="url" /><a href="${url}">${trip.tripTitle}</a></td>
+									<td><c:url value="/trip?tripId=${trip.tripId}" var="url" /><a href="${url}">${trip.tripTitle}</a></td>
 									<td><c:out value="${trip.userId}" /></td>
 								</tr>
 							</tbody>
@@ -74,6 +84,7 @@
 			</table>
 		</section>
 	</main>
-
+	<script src="${pageContext.request.contextPath}/resources/js/search.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/modal.js"></script>
 </body>
 </html>
